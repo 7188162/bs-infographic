@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ベーデン＝パウエルと冒険の旅！</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Yumin', cursive, sans-serif;
+            background-color: #a8d5e5;
+            color: #333;
+            margin: 0;
+            padding: 10px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 8px solid #ffcc29;
+        }
+        header {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #e8f4f8;
+        }
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #ff9800;
+            background-color: #fff7e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .section-title {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            font-size: 1.5em;
+        }
+        .adventure-box {
+            background-color: #fff7e6;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .timeline {
+            padding: 20px;
+        }
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+            position: relative;
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .timeline-item:nth-child(odd) {
+            background-color: #fff0f5;
+        }
+        .timeline-year {
+            flex: 0 0 70px;
+            font-weight: bold;
+            color: #ff5722;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffecb3;
+            border-radius: 10px 0 0 10px;
+            margin: -10px 10px -10px -10px;
+            padding: 10px;
+        }
+        .timeline-content {
+            flex: 1;
+            padding-left: 15px;
+        }
+        .timeline-content h3 {
+            margin-top: 0;
+            color: #e91e63;
+        }
+        .fun-facts {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 15px;
+            justify-content: center;
+        }
+        .fun-fact {
+            flex: 0 0 calc(50% - 20px);
+            text-align: center;
+            padding: 15px;
+            background-color: #e1f5fe;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 3px dashed #2196f3;
+        }
+        .badge-collection {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .badge {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .badge.courage {
+            background-color: #f44336;
+        }
+        .badge.friendship {
+            background-color: #2196f3;
+        }
+        .badge.nature {
+            background-color: #4caf50;
+        }
+        .badge.adventure {
+            background-color: #ff9800;
+        }
+        .badge.kindness {
+            background-color: #e91e63;
+        }
+        .activity {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            border: 2px solid #4caf50;
+        }
+        .activity h3 {
+            color: #4caf50;
+            text-align: center;
+        }
+        .quote {
+            background-color: #673ab7;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.4em;
+            line-height: 1.6;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .quote::before {
+            content: '"';
+            font-size: 2em;
+            margin-right: 5px;
+        }
+        .quote::after {
+            content: '"';
+            font-size: 2em;
+            margin-left: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+            background-color: #ffcc29;
+            color: #333;
+        }
+        .emoji {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .character {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            cursor: pointer;
+            z-index: 100;
+        }
+        .speech-bubble {
+            display: none;
+            position: absolute;
+            bottom: 100px;
+            right: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            max-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 40px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: white transparent;
+        }
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column;
+            }
+            .timeline-year {
+                border-radius: 10px 10px 0 0;
+                margin: -10px -10px 10px -10px;
+                width: auto;
+            }
+            .fun-fact {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ビーピーのすごい冒険!</h1>
+            <div class="subtitle">スカウト運動を作った人：ロバート・ベーデン＝パウエル</div>
+        </header>
+
+        <div class="profile">
+            <div class="profile-img">
+                <svg width="140" height="140" viewBox="0 0 140 140">
+                    <!-- よりカートゥーン風の顔 -->
+                    <circle cx="70" cy="70" r="60" fill="#ffe0b2" /> <!-- 顔 -->
+                    <circle cx="50" cy="55" r="8" fill="#5d4037" /> <!-- 左目 -->
+                    <circle cx="90" cy="55" r="8" fill="#5d4037" /> <!-- 右目 -->
+                    <path d="M50 55 Q55 50, 60 55" stroke="#5d4037" stroke-width="2" fill="none" /> <!-- 左眉毛 -->
+                    <path d="M80 55 Q85 50, 90 55" stroke="#5d4037" stroke-width="2" fill="none" /> <!-- 右眉毛 -->
+                    <path d="M60 85 Q70 95, 80 85" stroke="#5d4037" stroke-width="2" fill="none" /> <!-- 笑顔 -->
+                    <path d="M30 40 Q45 25, 60 45" stroke="#5d4037" stroke-width="3" fill="none" /> <!-- 左の髪 -->
+                    <path d="M80 45 Q95 25, 110 40" stroke="#5d4037" stroke-width="3" fill="none" /> <!-- 右の髪 -->
+                    <path d="M25 70 Q30 100, 70 110 Q110 100, 115 70" fill="#8d6e63" /> <!-- 髭・あご髭 -->
+                </svg>
+            </div>
+            <h2>ビーピー（B-P）って知ってる？</h2>
+            <p>みんながカブスカウト・ボーイスカウトで楽しく活動できるのは、<strong>ロバート・ベーデン＝パウエル</strong>というおじさんが始めたんだよ！みんなは「ビーピー」って呼んでるよ。</p>
+        </div>
+
+        <h2 class="section-title">ビーピーのすごい冒険</h2>
+        <div class="adventure-box">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1857年</div>
+                    <div class="timeline-content">
+                        <h3>生まれたよ！</h3>
+                        <p>イギリスのロンドンで生まれたよ。子どものころから自然の中で遊ぶのが大好きだったんだ！</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1876年</div>
+                    <div class="timeline-content">
+                        <h3>兵隊さんになったよ</h3>
+                        <p>兵隊さんになって、世界中のいろんな国に行ったんだよ。森の中で道を見つける方法や、焚き火の仕方をおぼえたよ。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1899年</div>
+                    <div class="timeline-content">
+                        <h3>ヒーローになった！</h3>
+                        <p>アフリカのマフェキングという町で敵にかこまれても、みんなを守って217日間がんばったんだよ！</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1907年</div>
+                    <div class="timeline-content">
+                        <h3>初めてのキャンプ</h3>
+                        <p>20人の男の子たちと小さな島でキャンプをしたよ。これが世界で初めてのボーイスカウトのキャンプなんだよ！</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1908年</div>
+                    <div class="timeline-content">
+                        <h3>本を書いたよ</h3>
+                        <p>「スカウティング・フォア・ボーイズ」という本を書いたよ。キャンプの仕方や自然の中での生き方がのってるんだ。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1916年</div>
+                    <div class="timeline-content">
+                        <h3>カブスカウト誕生</h3>
+                        <p>小さい子どもたちのために「カブスカウト」を作ったよ！「ジャングルブック」のお話を使って楽しい活動を考えたんだ。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1941年</div>
+                    <div class="timeline-content">
+                        <h3>空の上へ</h3>
+                        <p>83さいでお空に帰ったけど、ビーピーが始めたスカウト運動は今でも世界中で続いているよ！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">ビーピーからのメッセージ</h2>
+        <div class="quote">
+            "じゅんびをしよう（Be Prepared）"
+        </div>
+
+        <h2 class="section-title">ビーピーの教えてくれた5つの宝物</h2>
+        <div class="badge-collection">
+            <div class="badge courage">
+                <div class="emoji">💪</div>
+                <div>ゆうき</div>
+            </div>
+            <div class="badge friendship">
+                <div class="emoji">🤝</div>
+                <div>友情</div>
+            </div>
+            <div class="badge nature">
+                <div class="emoji">🌳</div>
+                <div>自然</div>
+            </div>
+            <div class="badge adventure">
+                <div class="emoji">🧭</div>
+                <div>冒険</div>
+            </div>
+            <div class="badge kindness">
+                <div class="emoji">❤️</div>
+                <div>やさしさ</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">おもしろ知識</h2>
+        <div class="fun-facts">
+            <div class="fun-fact">
+                <div class="emoji">🔍</div>
+                <h3>名探偵だった！</h3>
+                <p>ビーピーは足あとを見ただけで、どんな人が通ったのかわかったんだよ！</p>
+            </div>
+            <div class="fun-fact">
+                <div class="emoji">🎨</div>
+                <h3>絵がうまかった！</h3>
+                <p>左手でも右手でも同時に絵を描くことができたんだよ！すごいでしょ？</p>
+            </div>
+            <div class="fun-fact">
+                <div class="emoji">🌍</div>
+                <h3>世界中に友だち</h3>
+                <p>今では世界中に5700万人以上のスカウトがいるよ！みんな同じスカウト家族なんだ！</p>
+            </div>
+            <div class="fun-fact">
+                <div class="emoji">🐺</div>
+                <h3>カブの名前の秘密</h3>
+                <p>カブスカウトの「カブ」は子どものオオカミという意味なんだよ！</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">やってみよう！ビーピーチャレンジ</h2>
+        <div class="activity">
+            <h3>自然の宝物を見つけよう</h3>
+            <p>お外に行って、次のものを探してみよう：</p>
+            <ul>
+                <li>変わった形の葉っぱ</li>
+                <li>きれいな石</li>
+                <li>動物の足あと</li>
+                <li>鳥の羽</li>
+            </ul>
+            <p>見つけたものを友だちに見せて、何を見つけたか教えてあげよう！</p>
+        </div>
+
+        <footer>
+            <p>ロバート・ベーデン＝パウエル (1857-1941)</p>
+            <p>「一度スカウト、いつもスカウト！」</p>
+        </footer>
+    </div>
+
+    <div class="character">
+        <svg width="100" height="120" viewBox="0 0 100 120">
+            <!-- スカウト帽子 -->
+            <path d="M10 60 Q50 30, 90 60" fill="#325902" />
+            <!-- 顔 -->
+            <circle cx="50" cy="70" r="30" fill="#ffe0b2" />
+            <!-- 目 -->
+            <circle cx="40" cy="65" r="3" fill="#000" />
+            <circle cx="60" cy="65" r="3" fill="#000" />
+            <!-- 笑顔 -->
+            <path d="M40 80 Q50 90, 60 80" stroke="#000" stroke-width="2" fill="none" />
+            <!-- スカーフ -->
+            <path d="M20 95 L50 110 L80 95" fill="#f44336" />
+        </svg>
+        <div class="speech-bubble">こんにちは！ぼくはビーピーだよ。困ったことがあったら、いつでも呼んでね！</div>
+    </div>
+
+    <script>
+        // キャラクターのクリックイベント
+        document.addEventListener('DOMContentLoaded', function() {
+            const character = document.querySelector('.character');
+            const speechBubble = document.querySelector('.speech-bubble');
+            
+            character.addEventListener('click', function() {
+                if (speechBubble.style.display === 'block') {
+                    speechBubble.style.display = 'none';
+                } else {
+                    speechBubble.style.display = 'block';
+                    
+                    // 5秒後に自動的に閉じる
+                    setTimeout(function() {
+                        speechBubble.style.display = 'none';
+                    }, 5000);
+                }
+            });
+            
+            // ランダムなメッセージを表示する機能も追加できます
+            const messages = [
+                "こんにちは！ぼくはビーピーだよ。困ったことがあったら、いつでも呼んでね！",
+                "自然の中で遊ぶのはたのしいよね！",
+                "友だちを大切にしよう！",
+                "新しいことにチャレンジする勇気を持とう！",
+                "いつも「じゅんび」をしておこう！",
+                "今日はどんないいことをしたかな？"
+            ];
+            
+            character.addEventListener('click', function() {
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                speechBubble.textContent = randomMessage;
+            });
+        });
+        
+        // タイムラインのアニメーション
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const badgeCollection = document.querySelector('.badge-collection');
+            const badges = document.querySelectorAll('.badge');
+            
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            function animateOnScroll() {
+                timelineItems.forEach(item => {
+                    if (isInViewport(item)) {
+                        item.style.opacity = 1;
+                        item.style.transform = 'translateY(0)';
+                    }
+                });
+                
+                if (isInViewport(badgeCollection)) {
+                    badges.forEach((badge, index) => {
+                        setTimeout(() => {
+                            badge.style.opacity = 1;
+                            badge.style.transform = 'scale(1)';
+                        }, index * 200);
+                    });
+                }
+            }
+            
+            // 初期スタイル
+            timelineItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            badges.forEach(badge => {
+                badge.style.opacity = 0;
+                badge.style.transform = 'scale(0.5)';
+                badge.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // 初回実行
+            animateOnScroll();
+            
+            // スクロール時に実行
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
+</body>
+</html>
