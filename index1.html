@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ボーイスカウト運動の魅力</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #115740;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #115740;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #115740;
+            padding-bottom: 10px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #115740;
+        }
+        
+        .card h3 {
+            color: #046a38;
+            margin-bottom: 10px;
+        }
+        
+        .age-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .age-icon {
+            flex: 0 0 80px;
+            height: 80px;
+            background-color: #115740;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .age-content {
+            flex: 1;
+        }
+        
+        .activities {
+            margin-top: 30px;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .activity-icon {
+            flex: 0 0 50px;
+            height: 50px;
+            background-color: #f5d76e;
+            color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+        
+        .testimonials {
+            margin-top: 30px;
+        }
+        
+        .testimonial {
+            padding: 20px;
+            border-left: 4px solid #115740;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .author {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #046a38;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .cta {
+            background-color: #046a38;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .cta h2 {
+            color: white;
+            border-bottom: none;
+            margin-bottom: 15px;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: #f5d76e;
+            color: #333;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .button:hover {
+            background-color: #f2c94c;
+            transform: scale(1.05);
+        }
+
+        .chart-container {
+            height: 400px;
+            margin: 30px 0;
+            position: relative;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .age-group {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .age-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ボーイスカウト運動の魅力</h1>
+            <p class="subtitle">～子どもの成長と自立を育む100年以上の伝統～</p>
+        </header>
+        
+        <div class="section">
+            <h2>ボーイスカウトとは？</h2>
+            <p>ボーイスカウトは、野外活動や社会奉仕を通じて、青少年の人格形成と社会に役立つスキルを育む世界的な青少年育成運動です。1907年にイギリスのベーデン・パウエル卿によって創設され、現在は世界170カ国以上、約4,000万人が活動しています。</p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">170+</div>
+                    <div class="stat-label">活動国</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4000万</div>
+                    <div class="stat-label">世界の会員数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">115年+</div>
+                    <div class="stat-label">歴史と伝統</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10万+</div>
+                    <div class="stat-label">日本の会員数</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>ボーイスカウト活動の5つの魅力</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="icon">🌲</div>
+                    <h3>自然との触れ合い</h3>
+                    <p>キャンプや野外活動を通じて、自然の中で生き抜く力を身につけ、環境保護の大切さを学びます。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🤝</div>
+                    <h3>チームワーク</h3>
+                    <p>班制度によるグループ活動を通じて、協調性やリーダーシップを養います。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">💪</div>
+                    <h3>自立心の育成</h3>
+                    <p>自分自身で考え、判断し、行動する力を育みます。失敗も成長の糧として大切にします。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🌍</div>
+                    <h3>社会奉仕の精神</h3>
+                    <p>地域社会への奉仕活動を通じて、他者を思いやる心と社会に貢献する姿勢を育てます。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🌟</div>
+                    <h3>様々なスキル習得</h3>
+                    <p>進級課目やバッジ獲得を通じて、実生活に役立つ多種多様なスキルを楽しみながら身につけます。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🌐</div>
+                    <h3>国際交流</h3>
+                    <p>ジャンボリーなどの国際大会を通じて、世界中の仲間と交流し、国際感覚を養います。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>年齢別プログラム</h2>
+            <p>ボーイスカウトでは、年齢に合わせた5つの部門があり、それぞれの発達段階に応じたプログラムを提供しています。</p>
+            
+            <div class="age-group">
+                <div class="age-icon" style="background-color: #418FDE;">BVS</div>
+                <div class="age-content">
+                    <h3>ビーバースカウト（5～6歳）</h3>
+                    <p>仲間との遊びや自然体験を通して、好奇心や探究心を育みます。楽しい集団活動が中心です。</p>
+                </div>
+            </div>
+            
+            <div class="age-group">
+                <div class="age-icon" style="background-color: #FFB81C;">CS</div>
+                <div class="age-content">
+                    <h3>カブスカウト（7～11歳）</h3>
+                    <p>「ジャングルブック」の世界観をモチーフに、組での活動を通じて協調性や自立心を養います。</p>
+                </div>
+            </div>
+            
+            <div class="age-group">
+                <div class="age-icon" style="background-color: #115740;">BS</div>
+                <div class="age-content">
+                    <h3>ボーイスカウト（12～14歳）</h3>
+                    <p>班制度による自治的な活動が中心。キャンプやハイキングなどの野外活動を通じて自立心とリーダーシップを育みます。</p>
+                </div>
+            </div>
+            
+            <div class="age-group">
+                <div class="age-icon" style="background-color: #00205b;">VS</div>
+                <div class="age-content">
+                    <h3>ベンチャースカウト（15～17歳）</h3>
+                    <p>自ら計画を立て、高度な冒険活動や専門的なプロジェクトに挑戦。社会への視野を広げます。</p>
+                </div>
+            </div>
+            
+            <div class="age-group">
+                <div class="age-icon" style="background-color: #da291c;">RS</div>
+                <div class="age-content">
+                    <h3>ローバースカウト（18～25歳）</h3>
+                    <p>成人としての自覚を持ち、社会奉仕活動や国際協力活動に積極的に取り組みます。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>主な活動内容</h2>
+            <div class="activities">
+                <div class="activity-item">
+                    <div class="activity-icon">🏕️</div>
+                    <div>
+                        <h3>キャンプ</h3>
+                        <p>テント設営、野外料理、自然観察など、自然の中で生活する力を養います。</p>
+                    </div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon">🥾</div>
+                    <div>
+                        <h3>ハイキング・登山</h3>
+                        <p>地図やコンパスを使い、自然の中を歩き、観察力や判断力を養います。</p>
+                    </div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon">🧩</div>
+                    <div>
+                        <h3>技能訓練</h3>
+                        <p>ロープワーク、救急法、通信技術など、様々な実用的なスキルを学びます。</p>
+                    </div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon">👐</div>
+                    <div>
+                        <h3>奉仕活動</h3>
+                        <p>地域清掃、災害支援、福祉施設訪問など、社会に貢献する活動を行います。</p>
+                    </div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon">🌍</div>
+                    <div>
+                        <h3>国際交流</h3>
+                        <p>世界ジャンボリーや国際交流プログラムを通じて、世界中のスカウトと交流します。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>活動を通じて身につく能力</h2>
+            <div id="skills-chart" class="chart-container"></div>
+        </div>
+        
+        <div class="section">
+            <h2>保護者の声</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>「入隊前は人見知りだった息子が、今では自分から積極的に友達と関わり、リーダーシップを発揮するようになりました。キャンプで学んだ料理スキルを家庭でも披露してくれて、成長を実感しています。」</p>
+                    <div class="author">小学5年生の男の子のお母さん</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>「スマホやゲームばかりだった子どもが、スカウト活動を始めてからは自然の中で活動することの楽しさに目覚め、休日は外で活動するようになりました。体力も精神力も格段に成長しています。」</p>
+                    <div class="author">中学2年生の男の子のお父さん</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>「ボーイスカウトは単なる習い事ではなく、生きる力を総合的に育む場だと感じています。娘は女の子ですが、ボーイスカウトで学んだ自立心と協調性は、学校生活でも大いに役立っています。」</p>
+                    <div class="author">小学6年生の女の子のお母さん</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta">
+            <h2>子どもの未来を豊かに育むボーイスカウト</h2>
+            <p>ボーイスカウトでは、いつでも新しい仲間を歓迎しています。まずは、お近くの団の活動見学からお気軽にどうぞ。</p>
+            <a href="#" class="button">活動見学・入団のお問い合わせ</a>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script>
+        // スキルチャートの作成
+        const ctx = document.createElement('canvas');
+        ctx.style.maxWidth = '100%';
+        ctx.style.maxHeight = '100%';
+        document.getElementById('skills-chart').appendChild(ctx);
+        
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['自立心', 'リーダーシップ', '協調性', '問題解決能力', '環境意識', '社会性', '体力・健康'],
+                datasets: [{
+                    label: 'ボーイスカウト活動を通じて身につく能力',
+                    data: [90, 85, 95, 80, 90, 85, 90],
+                    fill: true,
+                    backgroundColor: 'rgba(17, 87, 64, 0.2)',
+                    borderColor: '#115740',
+                    pointBackgroundColor: '#115740',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#115740'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                },
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        ticks: {
+                            display: true,
+                            font: {
+                                size: 10
+                            }
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 11
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
