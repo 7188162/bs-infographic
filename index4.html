@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ボーイスカウトの世界へようこそ！ | インフォグラフィック</title>
+    <style>
+        /* --- 基本設定 --- */
+        :root {
+            --main-green: #115740;
+            --bvs-blue: #418FDE;
+            --cs-yellow: #FFB81C;
+            --bs-green: #115740;
+            --vs-navy: #00205b;
+            --rs-red: #da291c;
+            --light-gray: #f4f4f4;
+            --dark-text: #333;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap');
+
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: var(--dark-text);
+            line-height: 1.8;
+        }
+
+        /* --- ヘッダー --- */
+        header.hero {
+            background-color: var(--main-green);
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px;
+            background-image: 
+                linear-gradient(rgba(17, 87, 64, 0.8), rgba(17, 87, 64, 0.8)),
+                url('https://source.unsplash.com/1600x900/?forest,kids,camping');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 8px solid var(--cs-yellow);
+        }
+
+        header.hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header.hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* --- コンテンツセクション共通 --- */
+        .content-section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-size: 2.2rem;
+            color: var(--main-green);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .content-section h2::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background-color: var(--cs-yellow);
+            margin: 8px auto 0;
+        }
+        
+        /* --- JSアニメーション用 --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- スカウトの「ちかい」と「おきて」 --- */
+        .philosophy {
+            background-color: var(--light-gray);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .philosophy-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .philosophy-card h3 {
+            font-size: 1.5rem;
+            color: var(--main-green);
+            margin-top: 0;
+        }
+        .philosophy-card ul {
+            padding-left: 20px;
+            list-style-type: '⚜️'; /* フルール・ド・リス */
+            padding-left: 25px;
+        }
+        .philosophy-card li {
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+
+
+        /* --- 成長のステップ（各部門） --- */
+        .pathway-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+        }
+        
+        /* 縦のライン */
+        .pathway-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            bottom: 20px;
+            width: 4px;
+            background-color: #e0e0e0;
+            transform: translateX(-2px);
+            z-index: -1;
+        }
+
+        .pathway-item {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .pathway-item .icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            border: 5px solid white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .pathway-item .content {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: calc(100% - 120px);
+            text-align: left;
+        }
+        
+        /* 左右交互のレイアウト */
+        .pathway-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        .pathway-item:nth-child(odd) .content {
+            margin-left: 40px;
+        }
+
+        .pathway-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+         .pathway-item:nth-child(even) .content {
+            margin-right: 40px;
+        }
+
+        .pathway-item h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.6rem;
+        }
+        
+        .pathway-item .age {
+            font-weight: 700;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .bvs .icon, .bvs h3 { color: var(--bvs-blue); } .bvs .icon { background: var(--bvs-blue); color:white; }
+        .cs .icon, .cs h3 { color: var(--cs-yellow); } .cs .icon { background: var(--cs-yellow); color:white; }
+        .bs .icon, .bs h3 { color: var(--bs-green); } .bs .icon { background: var(--bs-green); color:white; }
+        .vs .icon, .vs h3 { color: var(--vs-navy); } .vs .icon { background: var(--vs-navy); color:white; }
+        .rs .icon, .rs h3 { color: var(--rs-red); } .rs .icon { background: var(--rs-red); color:white; }
+
+
+        /* --- 身につく力 --- */
+        #skills {
+            background-color: var(--light-gray);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+        .skill-card .emoji {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .skill-card h4 {
+            font-size: 1.3rem;
+            color: var(--main-green);
+            margin: 0;
+        }
+
+        /* --- CTA（行動喚起）セクション --- */
+        .cta {
+            background-color: var(--main-green);
+            color: white;
+        }
+        .cta h2 {
+            color: white;
+        }
+        .cta h2::after {
+            background-color: var(--cs-yellow);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--cs-yellow);
+            color: var(--dark-text);
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #ffc94d;
+        }
+
+        /* --- フッター --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* --- レスポンシブ対応 --- */
+        @media (max-width: 768px) {
+            header.hero h1 { font-size: 2.2rem; }
+            header.hero p { font-size: 1rem; }
+            .content-section h2 { font-size: 1.8rem; }
+            
+            /* タイムラインを中央寄せに */
+            .pathway-container::before {
+                left: 40px;
+            }
+            .pathway-item, .pathway-item:nth-child(even) {
+                flex-direction: row;
+            }
+            .pathway-item .content, .pathway-item:nth-child(even) .content {
+                margin: 0 0 0 20px;
+                width: calc(100% - 100px);
+            }
+            .pathway-item:nth-child(even) {
+              justify-content: flex-start;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>キミの冒険が、ここから始まる！</h1>
+        <p>ようこそ、ボーイスカウトの世界へ。自然の中で、仲間と共に学び、遊び、成長する。それは、一生モノの宝物になる体験です。</p>
+    </header>
+
+    <main>
+        <section class="content-section philosophy">
+            <h2 class="fade-in">すべての基本「ちかい」と「おきて」</h2>
+            <p class="fade-in" style="max-width: 700px; margin: 0 auto 40px;">ボーイスカウトは、人格・健康・技能・奉仕を大切な柱として、子どもたちの成長をサポートします。</p>
+            <div class="philosophy-grid">
+                <div class="philosophy-card fade-in">
+                    <h3>スカウトの「ちかい」</h3>
+                    <p>私は、名誉にかけて次の3条の実行をちかいます。</p>
+                    <ul>
+                        <li>神（仏）と国とに誠を尽くしおきてを守ります。</li>
+                        <li>いつも、他の人々を助けます。</li>
+                        <li>からだを強くし、心をすこやかに、徳を養います。</li>
+                    </ul>
+                </div>
+                <div class="philosophy-card fade-in">
+                    <h3>スカウトのモットー</h3>
+                    <p style="text-align:center; font-size:1.5rem; font-weight:bold; color: var(--main-green);">
+                        そなえよつねに<br>(Be Prepared)
+                    </p>
+                    <p style="text-align:center;">いつ、どんなことに出会っても対応できるよう、心と体の準備をしておく、という意味です。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="fade-in">年齢に応じた、成長のステップ</h2>
+            <div class="pathway-container">
+                
+                <div class="pathway-item bvs fade-in">
+                    <div class="icon">BVS</div>
+                    <div class="content">
+                        <h3>ビーバースカウト</h3>
+                        <div class="age">小学1年〜2年</div>
+                        <p>「みんなと なかよく あそぶ」をテーマに、集団での遊びを通して、自然に親しみ、社会性を身につけます。</p>
+                    </div>
+                </div>
+
+                <div class="pathway-item cs fade-in">
+                    <div class="icon">CS</div>
+                    <div class="content">
+                        <h3>カブスカウト</h3>
+                        <div class="age">小学3年〜5年</div>
+                        <p>「自分のことは 自分で」を目標に、好奇心に応える多彩なプログラムで、チームワークと自立心を育てます。</p>
+                    </div>
+                </div>
+                
+                <div class="pathway-item bs fade-in">
+                    <div class="icon">BS</div>
+                    <div class="content">
+                        <h3>ボーイスカウト</h3>
+                        <div class="age">小学6年〜中学3年</div>
+                        <p>班（パトロール）での活動を基本に、本格的なキャンプやハイキング、奉仕活動を通してリーダーシップと実践的なスキルを磨きます。</p>
+                    </div>
+                </div>
+                
+                <div class="pathway-item vs fade-in">
+                    <div class="icon">VS</div>
+                    <div class="content">
+                        <h3>ベンチャースカウト</h3>
+                        <div class="age">高校年代</div>
+                        <p>「高度な野外活動と社会貢献」を軸に、自分たちで活動を企画・実行。より大きな冒険とプロジェクトに挑戦します。</p>
+                    </div>
+                </div>
+
+                <div class="pathway-item rs fade-in">
+                    <div class="icon">RS</div>
+                    <div class="content">
+                        <h3>ローバースカウト</h3>
+                        <div class="age">18歳〜25歳</div>
+                        <p>「社会への奉仕」を胸に、自らのスキルと経験を活かして地域や世界に貢献。自発的な活動で自己研鑽を続けます。</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <section id="skills" class="content-section">
+            <h2 class="fade-in">活動を通して育まれる「生きる力」</h2>
+            <p class="fade-in" style="max-width: 700px; margin: 0 auto 40px;">学校の勉強だけでは得られない、社会で本当に役立つ様々な力を、体験の中から学び取ります。</p>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <span class="emoji">🤝</span>
+                    <h4>リーダーシップと<br>チームワーク</h4>
+                </div>
+                <div class="skill-card fade-in">
+                    <span class="emoji">💡</span>
+                    <h4>問題解決能力</h4>
+                </div>
+                <div class="skill-card fade-in">
+                    <span class="emoji">🗺️</span>
+                    <h4>計画性と実行力</h4>
+                </div>
+                <div class="skill-card fade-in">
+                    <span class="emoji">🔥</span>
+                    <h4>サバイバルスキル</h4>
+                </div>
+                <div class="skill-card fade-in">
+                    <span class="emoji">🌳</span>
+                    <h4>自然への敬意と知識</h4>
+                </div>
+                <div class="skill-card fade-in">
+                    <span class="emoji">❤️</span>
+                    <h4>社会奉仕の精神</h4>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section cta">
+            <h2 class="fade-in">さあ、冒険への一歩を踏み出そう！</h2>
+            <p class="fade-in">
+                ボーイスカウトは、いつでも新しい仲間を歓迎しています。<br>
+                見学や体験入隊も随時行っています。お近くの団を探してみませんか？
+            </p>
+            <a href="https://www.scout.or.jp/contact/group_search.html" target="_blank" class="cta-button fade-in">お近くのボーイスカウトを探す</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 ボーイスカウト運動紹介インフォグラフィック. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faders = document.querySelectorAll('.fade-in');
+
+            const appearOptions = {
+                threshold: 0.2, // 要素が20%見えたら発火
+                rootMargin: "0px 0px -50px 0px" // ビューポートの底を50px上に判定
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target); // 一度表示されたら監視をやめる
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+
+</body>
+</html>
