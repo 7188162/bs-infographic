@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ボーイスカウト運動 - インフォグラフィック</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #115740;
+            text-align: center;
+            font-size: 2em;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .section {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .section-header {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .section-content {
+            display: none;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        .section-content.show {
+            display: block;
+        }
+        .section-content p {
+            margin: 10px 0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #115740;
+        }
+        .section-header:hover {
+            filter: brightness(90%);
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            .intro {
+                font-size: 1em;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ボーイスカウトへようこそ！</h1>
+        <p class="intro">ボーイスカウトは、子どもたちが自然の中で学び、成長し、友情を育む場所です。<br>各部門をクリックして、どんな活動があるか見てみましょう！</p>
+        
+        <div class="section" data-color="#418FDE">
+            <div class="section-header" style="background-color: #418FDE;">ビーバースカウト (BVS) - 6～8歳</div>
+            <div class="section-content">
+                <p><span class="highlight">対象</span>: 小学1～2年生（6～8歳）</p>
+                <p><span class="highlight">特徴</span>: 遊びを通じて協調性や好奇心を育てます。自然探検や工作、簡単なゲームで「やってみる」楽しさを学びます。</p>
+                <p><span class="highlight">保護者へのポイント</span>: お子さんが初めての仲間との活動で自信をつけ、友達作りの第一歩を踏み出します！</p>
+            </div>
+        </div>
+
+        <div class="section" data-color="#FFB81C">
+            <div class="section-header" style="background-color: #FFB81C;">カブスカウト (CS) - 8～11歳</div>
+            <div class="section-content">
+                <p><span class="highlight">対象</span>: 小学3～5年生（8～11歳）</p>
+                <p><span class="highlight">特徴</span>: キャンプやハイキング、クラフトなど、冒険心をくすぐる活動がいっぱい！チームワークやリーダーシップの基礎を学びます。</p>
+                <p><span class="highlight">保護者へのポイント</span>: 責任感や自立心が育ち、自然の中での体験がお子さんの世界を広げます。</p>
+            </div>
+        </div>
+
+        <div class="section" data-color="#115740">
+            <div class="section-header" style="background-color: #115740;">ボーイスカウト (BS) - 11～14歳</div>
+            <div class="section-content">
+                <p><span class="highlight">対象</span>: 小学6年～中学3年生（11～14歳）</p>
+                <p><span class="highlight">特徴</span>: 本格的な野外活動や社会奉仕を通じて、リーダーシップと自立心を養います。テント設営やロープワークなど、実践的なスキルも！</p>
+                <p><span class="highlight">保護者へのポイント</span>: 仲間と協力しながら、将来に役立つ問題解決能力や自信を身につけます。</p>
+            </div>
+        </div>
+
+        <div class="section" data-color="#00205b">
+            <div class="section-header" style="background-color: #00205b;">ベンチャースカウト (VS) - 14～18歳</div>
+            <div class="section-content">
+                <p><span class="highlight">対象</span>: 中学3年～高校3年生（14～18歳）</p>
+                <p><span class="highlight">特徴</span>: 自分たちでプロジェクトを企画・実行！国際交流や地域貢献活動を通じて、グローバルな視野を育てます。</p>
+                <p><span class="highlight">保護者へのポイント</span>: 進学や将来の夢に向けたリーダーシップや責任感を養う貴重な機会です。</p>
+            </div>
+        </div>
+
+        <div class="section" data-color="#da291c">
+            <div class="section-header" style="background-color: #da291c;">ローバースカウト (RS) - 18～25歳</div>
+            <div class="section-content">
+                <p><span class="highlight">対象</span>: 18～25歳</p>
+                <p><span class="highlight">特徴</span>: 自己啓発や社会貢献を重視。自分たちの目標に向けた活動や、後輩スカウトの指導を行います。</p>
+                <p><span class="highlight">保護者へのポイント</span>: 大人への第一歩として、自己成長と社会とのつながりを深める場です。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.section-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const section = header.parentElement;
+                const content = section.querySelector('.section-content');
+                const isOpen = content.classList.contains('show');
+
+                // 他のセクションを閉じる
+                document.querySelectorAll('.section-content.show').forEach(openContent => {
+                    openContent.classList.remove('show');
+                });
+
+                // クリックしたセクションをトグル
+                if (!isOpen) {
+                    content.classList.add('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
